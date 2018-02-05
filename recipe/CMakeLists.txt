@@ -21,30 +21,20 @@ set(LIBRARIES_TO_LINK )
 
 # General source files
 set(SDL2_MIXER_SOURCE_FILES
-	dynamic_flac.c
-	dynamic_fluidsynth.c
-	dynamic_mod.c
-	dynamic_modplug.c
-	dynamic_mp3.c
-	dynamic_ogg.c
 	effect_position.c
 	effect_stereoreverse.c
 	effects_internal.c
-	fluidsynth.c
 	load_aiff.c
-	load_flac.c
-	load_mp3.c
-	load_ogg.c
 	load_voc.c
 	mixer.c
 	music.c
 	music_cmd.c
 	music_flac.c
 	music_mad.c
-	music_mod.c
+	music_mpg123.c
 	music_modplug.c
 	music_ogg.c
-	wavestream.c
+	music_wav.c
 )
 
 file(GLOB SDL2_MIXER_INCLUDE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
