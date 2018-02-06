@@ -109,8 +109,8 @@ endif()
 # 	endif()
 # endif()
 
-# # Create target library specs
-# add_library(${PROJECT_NAME} SHARED ${SDL2_MIXER_SOURCE_FILES} ${SDLMIXER_ADDITIONAL_SRC})
+# Create target library specs
+add_library(${PROJECT_NAME} SHARED ${SDL2_MIXER_SOURCE_FILES} ${SDLMIXER_ADDITIONAL_SRC})
 
 # if(SDLMIXER_SUPPORT_OGG_MUSIC)
 # 	add_definitions(-DOGG_MUSIC)
@@ -129,7 +129,6 @@ endif()
 # 	else()
 # 		message(STATUS "Found OGG: ${OGG_LIBRARIES}")
 # 	endif()
-
 
 # 	include_directories(${OGG_INCLUDE_DIR})
 # 	list(APPEND LIBRARIES_TO_LINK ${OGG_LIBRARIES})
