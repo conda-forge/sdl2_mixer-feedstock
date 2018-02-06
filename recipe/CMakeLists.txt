@@ -66,7 +66,6 @@ set(SDLMIXER_SUPPORT_MID_MUSIC ON CACHE BOOL "Support for MIDI music")
 	set(SDLMIXER_SUPPORT_MID_MUSIC_FLUIDSYNTH OFF CACHE BOOL "Support for MIDI over FluidSynth music")
 	set(SDLMIXER_SUPPORT_MID_MUSIC_NATIVE ON CACHE BOOL "Support for native MIDI music")
 set(SDLMIXER_SUPPORT_OGG_MUSIC ON CACHE BOOL "Support for OggVorbis music")
-set(SDLMIXER_SUPPORT_MP3_MUSIC ON CACHE BOOL "Support for MP3 music")
 set(SDLMIXER_SUPPORT_MP3_MAD_MUSIC ON CACHE BOOL "Support for MP3 MAD music")
 set(SDLMIXER_SUPPORT_FLAC_MUSIC ON CACHE BOOL "Support for FLAC music")
 
@@ -84,16 +83,12 @@ if(SDLMIXER_SUPPORT_MID_MUSIC)
 		include_directories("${SDLMIXER_SOURCE_DIR}/timidity")
 		set(SDLMIXER_TIMIDITY_SRC
 			timidity/common.c
-			timidity/ctrlmode.c
-			timidity/filter.c
 			timidity/instrum.c
 			timidity/mix.c
 			timidity/output.c
 			timidity/playmidi.c
 			timidity/readmidi.c
 			timidity/resample.c
-			timidity/sdl_a.c
-			timidity/sdl_c.c
 			timidity/tables.c
 			timidity/timidity.c
 		)
@@ -129,7 +124,7 @@ if(SDLMIXER_SUPPORT_OGG_MUSIC)
 	    PATH_SUFFIXES lib
 	)
 
-	if(SDL2_LIBRARIES-NOTFOUND)
+	if(OGG_LIBRARIES-NOTFOUND)
 		message(FATAL_ERROR "OGG libraries could not be located." )
 	else()
 		message(STATUS "Found OGG: ${OGG_LIBRARIES}")
@@ -155,23 +150,6 @@ if(SDLMIXER_SUPPORT_OGG_MUSIC)
 
 	include_directories(${VORBIS_INCLUDE_DIR})
 	list(APPEND LIBRARIES_TO_LINK ${VORBIS_LIBRARIES} ${VORBISFILE_LIBRARIES})
-endif()
-
-if(SDLMIXER_SUPPORT_MP3_MUSIC)
-	add_definitions(-DMP3_MUSIC)
-
-	FIND_PATH(SMPEG_INCLUDE_DIR
-	    smpeg.h
-	    PATH_SUFFIXES include include/smpeg include/smpeg2 include/SDL2
-	)
-
-	FIND_LIBRARY(SMPEG_LIBRARIES
-	    NAMES smpeg smpeg2 smpeg32
-	    PATH_SUFFIXES lib
-	)
-
-	include_directories(${SMPEG_INCLUDE_DIR})
-	target_link_libraries(${PROJECT_NAME} ${SMPEG_LIBRARIES})
 endif()
 
 if(SDLMIXER_SUPPORT_MP3_MAD_MUSIC)
