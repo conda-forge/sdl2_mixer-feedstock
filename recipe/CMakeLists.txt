@@ -73,123 +73,123 @@ if(SDLMIXER_SUPPORT_WAV_MUSIC)
 	add_definitions(-DWAV_MUSIC)
 endif()
 
-if(SDLMIXER_SUPPORT_MID_MUSIC)
-	add_definitions(-DMID_MUSIC)
+# if(SDLMIXER_SUPPORT_MID_MUSIC)
+# 	add_definitions(-DMID_MUSIC)
 
-	if(SDLMIXER_SUPPORT_MID_MUSIC_TIMIDITY)
-		add_definitions(-DUSE_TIMIDITY_MIDI)
+# 	if(SDLMIXER_SUPPORT_MID_MUSIC_TIMIDITY)
+# 		add_definitions(-DUSE_TIMIDITY_MIDI)
 
-		include_directories("${CMAKE_CURRENT_SOURCE_DIR}/timidity")
-		include_directories("${SDLMIXER_SOURCE_DIR}/timidity")
-		set(SDLMIXER_TIMIDITY_SRC
-			timidity/common.c
-			timidity/instrum.c
-			timidity/mix.c
-			timidity/output.c
-			timidity/playmidi.c
-			timidity/readmidi.c
-			timidity/resample.c
-			timidity/tables.c
-			timidity/timidity.c
-		)
-		list(APPEND SDLMIXER_ADDITIONAL_SRC ${SDLMIXER_TIMIDITY_SRC})
-	endif()
-	if(SDLMIXER_SUPPORT_MID_MUSIC_FLUIDSYNTH)
-		add_definitions(-DUSE_FLUIDSYNTH_MIDI)
-	endif()
-	if(SDLMIXER_SUPPORT_MID_MUSIC_NATIVE)
-		add_definitions(-DUSE_NATIVE_MIDI)
-		include_directories("${CMAKE_CURRENT_SOURCE_DIR}/native_midi")
-		set(SDLMIXER_NATIVEMIDI_SRC
-			native_midi/native_midi_common.c
-		)
-		list(APPEND SDLMIXER_NATIVEMIDI_SRC native_midi/native_midi_win32.c)
-		list(APPEND LIBRARIES_TO_LINK winmm.lib)	
-		list(APPEND SDLMIXER_ADDITIONAL_SRC ${SDLMIXER_NATIVEMIDI_SRC})
-	endif()
-endif()
+# 		include_directories("${CMAKE_CURRENT_SOURCE_DIR}/timidity")
+# 		include_directories("${SDLMIXER_SOURCE_DIR}/timidity")
+# 		set(SDLMIXER_TIMIDITY_SRC
+# 			timidity/common.c
+# 			timidity/instrum.c
+# 			timidity/mix.c
+# 			timidity/output.c
+# 			timidity/playmidi.c
+# 			timidity/readmidi.c
+# 			timidity/resample.c
+# 			timidity/tables.c
+# 			timidity/timidity.c
+# 		)
+# 		list(APPEND SDLMIXER_ADDITIONAL_SRC ${SDLMIXER_TIMIDITY_SRC})
+# 	endif()
+# 	if(SDLMIXER_SUPPORT_MID_MUSIC_FLUIDSYNTH)
+# 		add_definitions(-DUSE_FLUIDSYNTH_MIDI)
+# 	endif()
+# 	if(SDLMIXER_SUPPORT_MID_MUSIC_NATIVE)
+# 		add_definitions(-DUSE_NATIVE_MIDI)
+# 		include_directories("${CMAKE_CURRENT_SOURCE_DIR}/native_midi")
+# 		set(SDLMIXER_NATIVEMIDI_SRC
+# 			native_midi/native_midi_common.c
+# 		)
+# 		list(APPEND SDLMIXER_NATIVEMIDI_SRC native_midi/native_midi_win32.c)
+# 		list(APPEND LIBRARIES_TO_LINK winmm.lib)	
+# 		list(APPEND SDLMIXER_ADDITIONAL_SRC ${SDLMIXER_NATIVEMIDI_SRC})
+# 	endif()
+# endif()
 
-# Create target library specs
-add_library(${PROJECT_NAME} SHARED ${SDL2_MIXER_SOURCE_FILES} ${SDLMIXER_ADDITIONAL_SRC})
+# # Create target library specs
+# add_library(${PROJECT_NAME} SHARED ${SDL2_MIXER_SOURCE_FILES} ${SDLMIXER_ADDITIONAL_SRC})
 
-if(SDLMIXER_SUPPORT_OGG_MUSIC)
-	add_definitions(-DOGG_MUSIC)
+# if(SDLMIXER_SUPPORT_OGG_MUSIC)
+# 	add_definitions(-DOGG_MUSIC)
 	
-	FIND_PATH(OGG_INCLUDE_DIR
-	    ogg.h
-	    PATH_SUFFIXES include/ogg
-	)
-	FIND_LIBRARY(OGG_LIBRARIES
-	    NAMES ogg libogg
-	    PATH_SUFFIXES lib
-	)
+# 	FIND_PATH(OGG_INCLUDE_DIR
+# 	    ogg.h
+# 	    PATH_SUFFIXES include/ogg
+# 	)
+# 	FIND_LIBRARY(OGG_LIBRARIES
+# 	    NAMES ogg libogg
+# 	    PATH_SUFFIXES lib
+# 	)
 
-	if(OGG_LIBRARIES-NOTFOUND)
-		message(FATAL_ERROR "OGG libraries could not be located." )
-	else()
-		message(STATUS "Found OGG: ${OGG_LIBRARIES}")
-	endif()
+# 	if(OGG_LIBRARIES-NOTFOUND)
+# 		message(FATAL_ERROR "OGG libraries could not be located." )
+# 	else()
+# 		message(STATUS "Found OGG: ${OGG_LIBRARIES}")
+# 	endif()
 
 
-	include_directories(${OGG_INCLUDE_DIR})
-	list(APPEND LIBRARIES_TO_LINK ${OGG_LIBRARIES})
+# 	include_directories(${OGG_INCLUDE_DIR})
+# 	list(APPEND LIBRARIES_TO_LINK ${OGG_LIBRARIES})
 
-	FIND_PATH(VORBIS_INCLUDE_DIR
-	    vorbisenc.h
-	    PATH_SUFFIXES include/vorbis
-	)
-	FIND_LIBRARY(VORBIS_LIBRARIES
-	    NAMES libvorbis vorbis
-	    PATH_SUFFIXES lib
-	)
+# 	FIND_PATH(VORBIS_INCLUDE_DIR
+# 	    vorbisenc.h
+# 	    PATH_SUFFIXES include/vorbis
+# 	)
+# 	FIND_LIBRARY(VORBIS_LIBRARIES
+# 	    NAMES libvorbis vorbis
+# 	    PATH_SUFFIXES lib
+# 	)
 
-	FIND_LIBRARY(VORBISFILE_LIBRARIES
-		NAMES libvorbisfile vorbisfile
-	    PATH_SUFFIXES lib
-	)
+# 	FIND_LIBRARY(VORBISFILE_LIBRARIES
+# 		NAMES libvorbisfile vorbisfile
+# 	    PATH_SUFFIXES lib
+# 	)
 
-	include_directories(${VORBIS_INCLUDE_DIR})
-	list(APPEND LIBRARIES_TO_LINK ${VORBIS_LIBRARIES} ${VORBISFILE_LIBRARIES})
-endif()
+# 	include_directories(${VORBIS_INCLUDE_DIR})
+# 	list(APPEND LIBRARIES_TO_LINK ${VORBIS_LIBRARIES} ${VORBISFILE_LIBRARIES})
+# endif()
 
-if(SDLMIXER_SUPPORT_MP3_MAD_MUSIC)
-	add_definitions(-DMP3_MAD_MUSIC)
+# if(SDLMIXER_SUPPORT_MP3_MAD_MUSIC)
+# 	add_definitions(-DMP3_MAD_MUSIC)
 
-	if (("${CMAKE_SYSTEM_PROCESSOR}" MATCHES "x86_64|AMD64"))
-		add_definitions(-DFPM_64BIT)
-	elseif (("${CMAKE_SYSTEM_PROCESSOR}" MATCHES "x86"))
-		add_definitions(-DFPM_INTEL)
-	else()
-		message("Unknown architecture: ${CMAKE_SYSTEM_PROCESSOR}")
-	endif()
+# 	if (("${CMAKE_SYSTEM_PROCESSOR}" MATCHES "x86_64|AMD64"))
+# 		add_definitions(-DFPM_64BIT)
+# 	elseif (("${CMAKE_SYSTEM_PROCESSOR}" MATCHES "x86"))
+# 		add_definitions(-DFPM_INTEL)
+# 	else()
+# 		message("Unknown architecture: ${CMAKE_SYSTEM_PROCESSOR}")
+# 	endif()
 
-	FIND_PATH(MAD_INCLUDE_DIR
-	    mad.h
-	    PATH_SUFFIXES include/libmad include
-	)
-	FIND_LIBRARY(MAD_LIBRARIES
-	    NAMES libmad
-	    PATH_SUFFIXES lib
-	)
-	include_directories(${MAD_INCLUDE_DIR})
-	list(APPEND LIBRARIES_TO_LINK ${MAD_LIBRARIES})
-endif()
+# 	FIND_PATH(MAD_INCLUDE_DIR
+# 	    mad.h
+# 	    PATH_SUFFIXES include/libmad include
+# 	)
+# 	FIND_LIBRARY(MAD_LIBRARIES
+# 	    NAMES libmad
+# 	    PATH_SUFFIXES lib
+# 	)
+# 	include_directories(${MAD_INCLUDE_DIR})
+# 	list(APPEND LIBRARIES_TO_LINK ${MAD_LIBRARIES})
+# endif()
 
-if(SDLMIXER_SUPPORT_FLAC_MUSIC)
-	add_definitions(-DFLAC_MUSIC)
+# if(SDLMIXER_SUPPORT_FLAC_MUSIC)
+# 	add_definitions(-DFLAC_MUSIC)
 
-	FIND_PATH(FLAC_INCLUDE_DIR
-	    all.h
-	    PATH_SUFFIXES include/FLAC include
-	)
-	FIND_LIBRARY(FLAC_LIBRARIES
-	    NAMES libFLAC
-	    PATH_SUFFIXES lib
-	)
+# 	FIND_PATH(FLAC_INCLUDE_DIR
+# 	    all.h
+# 	    PATH_SUFFIXES include/FLAC include
+# 	)
+# 	FIND_LIBRARY(FLAC_LIBRARIES
+# 	    NAMES libFLAC
+# 	    PATH_SUFFIXES lib
+# 	)
 
-	include_directories(${FLAC_INCLUDE_DIR})
-	list(APPEND LIBRARIES_TO_LINK ${FLAC_LIBRARIES})
-endif()
+# 	include_directories(${FLAC_INCLUDE_DIR})
+# 	list(APPEND LIBRARIES_TO_LINK ${FLAC_LIBRARIES})
+# endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES DEFINE_SYMBOL "DLL_EXPORT")
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${LIBRARIES_TO_LINK})
