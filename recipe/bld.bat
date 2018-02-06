@@ -12,7 +12,12 @@ if %VS_MAJOR% GTR 10 (
 )
 if errorlevel 1 exit 1
 
-msbuild /nologo SDL_mixer.sln /p:Configuration=Release;Platform=%PLATFORM% /m
+set "INCLUDE=%LIBRARY_INC%;%INCLUDE%"
+set "LIB=%LIBRARY_LIB%;%LIBRARY_BIN%;%LIB%"
+set "AdditionalIncludeDirectories=%LIBRARY_INC%"
+set "UseEnv=true"
+
+msbuild /nologo SDL_mixer.sln /p:Configuration=Release;Platform=%PLATFORM%
 if errorlevel 1 exit 1
 
 rem copy %RECIPE_DIR%\CMakeLists.txt .\CMakeLists.txt
