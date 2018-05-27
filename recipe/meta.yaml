@@ -1,6 +1,6 @@
 {% set name = "SDL2_mixer" %}
 {% set version = "2.0.2" %}
-{% set sha256 = "3510c25da735ffcd8ce3b65073150ff4f7f9493b866e85b83738083b556d2368" %}
+{% set sha256 = "4e615e27efca4f439df9af6aa2c6de84150d17cbfd12174b54868c12f19c83bb" %}
 
 package:
   name: {{ name|lower }}
