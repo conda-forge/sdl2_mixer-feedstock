@@ -22,5 +22,5 @@ echo %LIB%
 echo %AdditionalIncludeDirectories%
 
 
-msbuild /nologo SDL_mixer.sln "/p:Configuration=Release;Platform=%PLATFORM%;useenv=true"
+msbuild /nologo SDL_mixer.sln "/p:Configuration=Release;Platform=%PLATFORM%;useenv=true" /v:diag
 if errorlevel 1 exit 1
