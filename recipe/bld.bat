@@ -21,8 +21,9 @@ if %VS_MAJOR% == 9 (
 
 cd VisualC
 if %VS_MAJOR% GTR 10 (
-    dir %VSINSTALLDIR%
-    dir %VSINSTALLDIR%\..
+    echo "vs install is %VSINSTALLDIR% and %VS140COMNTOOLS%"
+    dir "%VSINSTALLDIR%"
+    dir "%VS140COMNTOOLS%"
     "%VSINSTALLDIR%\devenv.exe" SDL_mixer.sln /upgrade
 )
 if errorlevel 1 exit 1
