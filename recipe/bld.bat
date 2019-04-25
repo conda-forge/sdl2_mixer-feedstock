@@ -21,6 +21,18 @@ echo %INCLUDE%
 echo %LIB%
 echo %AdditionalIncludeDirectories%
 
+IF EXIST %BUILD_PREFIX% (
+echo "build prefix exists"
+) ELSE (
+echo "build prefix does not exists!!!"
+)
 
-msbuild /nologo SDL_mixer.sln "/p:Configuration=Release;Platform=%PLATFORM%;useenv=true" /v:diag
+IF EXIST %PREFIX% (
+echo "prefix exists"
+) ELSE (
+echo "prefix does not exists!!!"
+)
+
+
+msbuild /nologo SDL_mixer.sln "/p:Configuration=Release;Platform=%PLATFORM%;useenv=true"
 if errorlevel 1 exit 1
