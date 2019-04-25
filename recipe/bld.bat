@@ -17,15 +17,17 @@ if %VS_MAJOR% == 9 (
         if errorlevel 1 exit 1
         set "PATH=%CD%;%PATH%"
     )
+    dir "C:\Program Files (x86)"
+    dir "C:\Windows\Microsoft.NET\Framework" /s
 )
 
 cd VisualC
 if %VS_MAJOR% GTR 10 (
-    echo "vs install is %VSINSTALLDIR% and %VS140COMNTOOLS%"
-    dir "%VSINSTALLDIR%\..\Microsoft Visual Studio" /s
-    dir "%VSINSTALLDIR%"\Common7 /s
-    dir "%VSINSTALLDIR%"\Common7\IDE
-    "%VSINSTALLDIR%\Common7\IDE\devenv.exe" SDL_mixer.sln /upgrade
+    if %USERNAME% == "appveyor" (
+    	"%VSINSTALLDIR%\Common7\IDE\devenv.exe" SDL_mixer.sln /upgrade
+    ) else (
+    	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe" SDL_mixer.sln /upgrade
+    )
 )
 if errorlevel 1 exit 1
 
