@@ -21,7 +21,9 @@ if %VS_MAJOR% == 9 (
 
 cd VisualC
 if %VS_MAJOR% GTR 10 (
-    "C:\Program Files (x86)\Microsoft Visual Studio %VS_MAJOR%.0\Common7\IDE\devenv" SDL_mixer.sln /upgrade
+    dir %VSINSTALLDIR%
+    dir %VSINSTALLDIR%\..
+    "%VSINSTALLDIR%\devenv.exe" SDL_mixer.sln /upgrade
 )
 if errorlevel 1 exit 1
 
