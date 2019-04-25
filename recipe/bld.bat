@@ -22,7 +22,7 @@ if %VS_MAJOR% == 9 (
 cd VisualC
 if %VS_MAJOR% GTR 10 (
     echo "vs install is %VSINSTALLDIR% and %VS140COMNTOOLS%"
-    dir "%VSINSTALLDIR%"\..
+    dir "%VSINSTALLDIR%\..\Microsoft Visual Studio" /s
     dir "%VSINSTALLDIR%"\Common7 /s
     dir "%VSINSTALLDIR%"\Common7\IDE
     "%VSINSTALLDIR%\Common7\IDE\devenv.exe" SDL_mixer.sln /upgrade
