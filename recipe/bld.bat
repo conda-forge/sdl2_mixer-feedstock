@@ -11,43 +11,28 @@ if %ARCH%==32 (
 :: AppVeyor barfs on the solution. This one comes from the Win7 SDK (.net 4.0),
 :: and is known to work.
 if %VS_MAJOR% == 9 (
+    echo "Copying MSBUILD"
+    dir C:\Windows\Microsoft.NET\Framework
+    dir C:\Windows\Microsoft.NET\Framework\v4.0.30319
     COPY C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe .\
     if errorlevel 1 exit 1
     set "PATH=%CD%;%PATH%"
 )
 
-if "%VS_YEAR%" == "2008" (
-  copy %LIBRARY_INC%\stdint.h %SRC_DIR%\builds\msvc\
-  copy %LIBRARY_INC%\inttypes.h %SRC_DIR%\builds\msvc\
-  if errorlevel 1 exit 1
-)
-
 cd VisualC
 if %VS_MAJOR% GTR 10 (
-	devenv SDL_mixer.sln /upgrade
+    devenv SDL_mixer.sln /upgrade
 )
 if errorlevel 1 exit 1
 
-set "INCLUDE=%LIBRARY_INC%;%INCLUDE%"
+set "INCLUDE=%LIBRARY_INC%;%INCLUDE%;%LIBRARY_INC%\SDL2"
 set "LIB=%LIBRARY_LIB%;%LIBRARY_BIN%;%LIB%"
-set "AdditionalIncludeDirectories=%LIBRARY_INC%"
+set "AdditionalIncludeDirectories=%INCLUDE%"
 
 echo "Build env configuration"
 echo %INCLUDE%
 echo %LIB%
 echo %AdditionalIncludeDirectories%
-
-IF EXIST %BUILD_PREFIX% (
-echo "build prefix exists"
-) ELSE (
-echo "build prefix does not exists!!!"
-)
-
-IF EXIST %PREFIX% (
-echo "prefix exists"
-) ELSE (
-echo "prefix does not exists!!!"
-)
 
 
 msbuild /nologo SDL_mixer.sln "/p:Configuration=Release;Platform=%PLATFORM%;useenv=true"
@@ -57,3 +42,4 @@ if errorlevel 1 exit 1
 move %PLATFORM%\Release\SDL2_mixer.lib %LIBRARY_LIB%
 move %PLATFORM%\Release\SDL2_mixer.dll %LIBRARY_BIN%
 move ..\SDL_mixer.h %LIBRARY_INC%\\SDL2
+if errorlevel 1 exit 1
