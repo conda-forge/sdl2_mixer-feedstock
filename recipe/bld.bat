@@ -10,15 +10,22 @@ if %ARCH%==32 (
 :: Nasty workaround. Need to move a more current msbuild into PATH.  The one on
 :: AppVeyor barfs on the solution. This one comes from the Win7 SDK (.net 4.0),
 :: and is known to work.
-if %VS_MAJOR% == 9 (
+if %VS_MAJOR%==9 (
     set "PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%"
+)
+
+if not %USERNAME%==appveyor (
+    echo "setting VCTargetsPath"
+    set "VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\v140"
 )
 
 cd VisualC
 if %VS_MAJOR% GTR 10 (
-    if %USERNAME% == "appveyor" (
+    if %USERNAME%==appveyor (
+        echo "Upgrading solution (appveyor)"
     	"%VSINSTALLDIR%\Common7\IDE\devenv.exe" SDL_mixer.sln /upgrade
     ) else (
+        echo "Upgrading solution (azure)"
     	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe" SDL_mixer.sln /upgrade
     )
 )
