@@ -15,7 +15,12 @@ if errorlevel 1 exit 1
 set "INCLUDE=%LIBRARY_INC%;%INCLUDE%"
 set "LIB=%LIBRARY_LIB%;%LIBRARY_BIN%;%LIB%"
 set "AdditionalIncludeDirectories=%LIBRARY_INC%"
-set "UseEnv=true"
 
-msbuild /nologo SDL_mixer.sln /p:Configuration=Release;Platform=%PLATFORM%
+echo "Build env configuration"
+echo %INCLUDE%
+echo %LIB%
+echo %AdditionalIncludeDirectories%
+
+
+msbuild /nologo SDL_mixer.sln "/p:Configuration=Release;Platform=%PLATFORM%;useenv=true"
 if errorlevel 1 exit 1
