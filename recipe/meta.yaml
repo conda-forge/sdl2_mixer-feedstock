@@ -1,6 +1,6 @@
 {% set name = "SDL2_mixer" %}
-{% set version = "2.0.1" %}
-{% set sha256 = "5a24f62a610249d744cbd8d28ee399d8905db7222bf3bdbc8a8b4a76e597695f" %}
+{% set version = "2.0.4" %}
+{% set sha256 = "b4cf5a382c061cd75081cf246c2aa2f9df8db04bdda8dcdc6b6cca55bede2419" %}
 
 package:
   name: {{ name|lower }}
@@ -12,11 +12,10 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
-    - cmake  # [win]
     - pkg-config  # [unix]
     - autoconf  # [unix]
     - automake  # [unix]
@@ -36,8 +35,6 @@ requirements:
     - smpeg2 2.0.*
 
 test:
-  requires:
-    - python {{ environ['PY_VER'] + '*' }}  # [win]
   commands:
     - test -f $PREFIX/lib/libSDL2_mixer.a  # [unix]
     - test -f $PREFIX/lib/libSDL2_mixer.dylib  # [osx]
