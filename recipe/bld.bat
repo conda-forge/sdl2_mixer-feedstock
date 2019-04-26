@@ -14,11 +14,6 @@ if %VS_MAJOR%==9 (
     set "PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%"
 )
 
-if not %USERNAME%==appveyor (
-    echo "setting VCTargetsPath"
-    set "VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\v140"
-)
-
 cd VisualC
 
 set "INCLUDE=%LIBRARY_INC%;%INCLUDE%;%LIBRARY_INC%\SDL2"
