@@ -20,16 +20,6 @@ if not %USERNAME%==appveyor (
 )
 
 cd VisualC
-if %VS_MAJOR% GTR 10 (
-    if %USERNAME%==appveyor (
-        echo "Upgrading solution (appveyor)"
-    	"%VSINSTALLDIR%\Common7\IDE\devenv.exe" SDL_mixer.sln /upgrade
-    ) else (
-        echo "Upgrading solution (azure)"
-    	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe" SDL_mixer.sln /upgrade
-    )
-)
-if errorlevel 1 exit 1
 
 set "INCLUDE=%LIBRARY_INC%;%INCLUDE%;%LIBRARY_INC%\SDL2"
 set "LIB=%LIBRARY_LIB%;%LIBRARY_BIN%;%LIB%"
