@@ -1,7 +1,6 @@
-Only in VisualC_new: .vs
-diff -ur VisualC/native_midi/native_midi.vcxproj VisualC_new/native_midi/native_midi.vcxproj
---- VisualC/native_midi/native_midi.vcxproj	2018-10-31 10:58:59.000000000 -0400
-+++ VisualC_new/native_midi/native_midi.vcxproj	2019-04-26 12:13:51.241238600 -0400
+diff -ur VisualC/native_midi/native_midi2.vcxproj VisualC/native_midi/native_midi.vcxproj
+--- VisualC/native_midi/native_midi2.vcxproj	2018-10-31 10:58:59.000000000 -0400
++++ VisualC/native_midi/native_midi.vcxproj	2019-04-26 12:13:51.241238600 -0400
 @@ -1,5 +1,5 @@
  ﻿<?xml version="1.0" encoding="utf-8"?>
 -<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -29,9 +28,9 @@ diff -ur VisualC/native_midi/native_midi.vcxproj VisualC_new/native_midi/native_
    </PropertyGroup>
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
    <ImportGroup Label="ExtensionSettings">
-diff -ur VisualC/playmus/playmus.vcxproj VisualC_new/playmus/playmus.vcxproj
+diff -ur VisualC/playmus/playmus.vcxproj VisualC/playmus/playmus.vcxproj
 --- VisualC/playmus/playmus.vcxproj	2018-10-31 10:58:59.000000000 -0400
-+++ VisualC_new/playmus/playmus.vcxproj	2019-04-26 12:13:51.479630800 -0400
++++ VisualC/playmus/playmus.vcxproj	2019-04-26 12:13:51.479630800 -0400
 @@ -1,5 +1,5 @@
  ﻿<?xml version="1.0" encoding="utf-8"?>
 -<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -59,10 +58,10 @@ diff -ur VisualC/playmus/playmus.vcxproj VisualC_new/playmus/playmus.vcxproj
    </PropertyGroup>
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
    <ImportGroup Label="ExtensionSettings">
-Only in VisualC_new/playmus: Win32
-diff -ur VisualC/playwave/playwave.vcxproj VisualC_new/playwave/playwave.vcxproj
+Only in VisualC/playmus: Win32
+diff -ur VisualC/playwave/playwave.vcxproj VisualC/playwave/playwave.vcxproj
 --- VisualC/playwave/playwave.vcxproj	2018-10-31 10:58:59.000000000 -0400
-+++ VisualC_new/playwave/playwave.vcxproj	2019-04-26 12:13:51.658117400 -0400
++++ VisualC/playwave/playwave.vcxproj	2019-04-26 12:13:51.658117400 -0400
 @@ -1,5 +1,5 @@
  ﻿<?xml version="1.0" encoding="utf-8"?>
 -<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -90,10 +89,10 @@ diff -ur VisualC/playwave/playwave.vcxproj VisualC_new/playwave/playwave.vcxproj
    </PropertyGroup>
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
    <ImportGroup Label="ExtensionSettings">
-Only in VisualC_new/playwave: Win32
-diff -ur VisualC/SDL_mixer.sln VisualC_new/SDL_mixer.sln
+Only in VisualC/playwave: Win32
+diff -ur VisualC/SDL_mixer.sln VisualC/SDL_mixer.sln
 --- VisualC/SDL_mixer.sln	2018-10-31 10:58:59.000000000 -0400
-+++ VisualC_new/SDL_mixer.sln	2019-04-26 12:13:52.714470200 -0400
++++ VisualC/SDL_mixer.sln	2019-04-26 12:13:52.714470200 -0400
 @@ -1,6 +1,8 @@
  ﻿
 -Microsoft Visual Studio Solution File, Format Version 11.00
@@ -105,10 +104,10 @@ diff -ur VisualC/SDL_mixer.sln VisualC_new/SDL_mixer.sln
  Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDL2_mixer", "SDL_mixer.vcxproj", "{F7E944B3-0815-40CD-B3E4-90B2A15B0E33}"
  EndProject
  Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "native_midi", "native_midi\native_midi.vcxproj", "{EBDA67CA-4A23-4F22-BFBC-B8DBE0580D4F}"
-Only in VisualC_new: SDL_mixer.VC.db
-diff -ur VisualC/SDL_mixer.vcxproj VisualC_new/SDL_mixer.vcxproj
+Only in VisualC: SDL_mixer.VC.db
+diff -ur VisualC/SDL_mixer.vcxproj VisualC/SDL_mixer.vcxproj
 --- VisualC/SDL_mixer.vcxproj	2018-10-31 10:58:59.000000000 -0400
-+++ VisualC_new/SDL_mixer.vcxproj	2019-04-26 12:13:50.978112400 -0400
++++ VisualC/SDL_mixer.vcxproj	2019-04-26 12:13:50.978112400 -0400
 @@ -1,5 +1,5 @@
  ﻿<?xml version="1.0" encoding="utf-8"?>
 -<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -136,9 +135,9 @@ diff -ur VisualC/SDL_mixer.vcxproj VisualC_new/SDL_mixer.vcxproj
    </PropertyGroup>
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
    <ImportGroup Label="ExtensionSettings">
-diff -ur VisualC/timidity/timidity.vcxproj VisualC_new/timidity/timidity.vcxproj
+diff -ur VisualC/timidity/timidity.vcxproj VisualC/timidity/timidity.vcxproj
 --- VisualC/timidity/timidity.vcxproj	2018-10-31 10:59:00.000000000 -0400
-+++ VisualC_new/timidity/timidity.vcxproj	2019-04-26 12:13:51.896500400 -0400
++++ VisualC/timidity/timidity.vcxproj	2019-04-26 12:13:51.896500400 -0400
 @@ -1,5 +1,5 @@
  ﻿<?xml version="1.0" encoding="utf-8"?>
 -<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
