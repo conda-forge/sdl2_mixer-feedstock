@@ -10,6 +10,8 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://www.libsdl.org/projects/SDL_mixer/release/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - vs2015_solution_upgrade.patch  # [win and c_compiler == 'vs2015']
 
 build:
   number: 0
