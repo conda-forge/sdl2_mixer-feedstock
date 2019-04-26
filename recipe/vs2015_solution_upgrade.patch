@@ -1,6 +1,6 @@
-diff -ur VisualC/native_midi/native_midi2.vcxproj VisualC/native_midi/native_midi.vcxproj
---- VisualC/native_midi/native_midi2.vcxproj	2018-10-31 10:58:59.000000000 -0400
-+++ VisualC/native_midi/native_midi.vcxproj	2019-04-26 12:13:51.241238600 -0400
+diff -ur VisualC/native_midi/native_midi.vcxproj VisualC_new/native_midi/native_midi.vcxproj
+--- VisualC/native_midi/native_midi.vcxproj	2019-04-26 13:03:19.635332500 -0400
++++ VisualC_new/native_midi/native_midi.vcxproj	2019-04-26 13:06:36.909472100 -0400
 @@ -1,5 +1,5 @@
  ﻿<?xml version="1.0" encoding="utf-8"?>
 -<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -8,7 +8,7 @@ diff -ur VisualC/native_midi/native_midi2.vcxproj VisualC/native_midi/native_mid
    <ItemGroup Label="ProjectConfigurations">
      <ProjectConfiguration Include="Debug|Win32">
        <Configuration>Debug</Configuration>
-@@ -25,15 +25,19 @@
+@@ -25,34 +25,38 @@
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
      <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -28,9 +28,32 @@ diff -ur VisualC/native_midi/native_midi2.vcxproj VisualC/native_midi/native_mid
    </PropertyGroup>
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
    <ImportGroup Label="ExtensionSettings">
-diff -ur VisualC/playmus/playmus.vcxproj VisualC/playmus/playmus.vcxproj
---- VisualC/playmus/playmus.vcxproj	2018-10-31 10:58:59.000000000 -0400
-+++ VisualC/playmus/playmus.vcxproj	2019-04-26 12:13:51.479630800 -0400
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <PropertyGroup Label="UserMacros" />
+   <PropertyGroup>
+diff -ur VisualC/playmus/playmus.vcxproj VisualC_new/playmus/playmus.vcxproj
+--- VisualC/playmus/playmus.vcxproj	2019-04-26 13:03:19.673082800 -0400
++++ VisualC_new/playmus/playmus.vcxproj	2019-04-26 13:06:35.807290800 -0400
 @@ -1,5 +1,5 @@
  ﻿<?xml version="1.0" encoding="utf-8"?>
 -<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -38,7 +61,7 @@ diff -ur VisualC/playmus/playmus.vcxproj VisualC/playmus/playmus.vcxproj
    <ItemGroup Label="ProjectConfigurations">
      <ProjectConfiguration Include="Debug|Win32">
        <Configuration>Debug</Configuration>
-@@ -25,15 +25,19 @@
+@@ -25,34 +25,38 @@
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
      <ConfigurationType>Application</ConfigurationType>
@@ -58,10 +81,33 @@ diff -ur VisualC/playmus/playmus.vcxproj VisualC/playmus/playmus.vcxproj
    </PropertyGroup>
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
    <ImportGroup Label="ExtensionSettings">
-Only in VisualC/playmus: Win32
-diff -ur VisualC/playwave/playwave.vcxproj VisualC/playwave/playwave.vcxproj
---- VisualC/playwave/playwave.vcxproj	2018-10-31 10:58:59.000000000 -0400
-+++ VisualC/playwave/playwave.vcxproj	2019-04-26 12:13:51.658117400 -0400
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <PropertyGroup Label="UserMacros" />
+   <PropertyGroup>
+Only in VisualC_new/playmus: Win32
+diff -ur VisualC/playwave/playwave.vcxproj VisualC_new/playwave/playwave.vcxproj
+--- VisualC/playwave/playwave.vcxproj	2019-04-26 13:03:19.604048100 -0400
++++ VisualC_new/playwave/playwave.vcxproj	2019-04-26 13:06:35.178313300 -0400
 @@ -1,5 +1,5 @@
  ﻿<?xml version="1.0" encoding="utf-8"?>
 -<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -69,7 +115,7 @@ diff -ur VisualC/playwave/playwave.vcxproj VisualC/playwave/playwave.vcxproj
    <ItemGroup Label="ProjectConfigurations">
      <ProjectConfiguration Include="Debug|Win32">
        <Configuration>Debug</Configuration>
-@@ -25,15 +25,19 @@
+@@ -25,34 +25,38 @@
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
      <ConfigurationType>Application</ConfigurationType>
@@ -89,10 +135,33 @@ diff -ur VisualC/playwave/playwave.vcxproj VisualC/playwave/playwave.vcxproj
    </PropertyGroup>
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
    <ImportGroup Label="ExtensionSettings">
-Only in VisualC/playwave: Win32
-diff -ur VisualC/SDL_mixer.sln VisualC/SDL_mixer.sln
---- VisualC/SDL_mixer.sln	2018-10-31 10:58:59.000000000 -0400
-+++ VisualC/SDL_mixer.sln	2019-04-26 12:13:52.714470200 -0400
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <PropertyGroup Label="UserMacros" />
+   <PropertyGroup>
+Only in VisualC_new/playwave: Win32
+diff -ur VisualC/SDL_mixer.sln VisualC_new/SDL_mixer.sln
+--- VisualC/SDL_mixer.sln	2019-04-26 13:03:19.450306900 -0400
++++ VisualC_new/SDL_mixer.sln	2019-04-26 12:13:52.714470200 -0400
 @@ -1,6 +1,8 @@
  ﻿
 -Microsoft Visual Studio Solution File, Format Version 11.00
@@ -104,10 +173,10 @@ diff -ur VisualC/SDL_mixer.sln VisualC/SDL_mixer.sln
  Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDL2_mixer", "SDL_mixer.vcxproj", "{F7E944B3-0815-40CD-B3E4-90B2A15B0E33}"
  EndProject
  Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "native_midi", "native_midi\native_midi.vcxproj", "{EBDA67CA-4A23-4F22-BFBC-B8DBE0580D4F}"
-Only in VisualC: SDL_mixer.VC.db
-diff -ur VisualC/SDL_mixer.vcxproj VisualC/SDL_mixer.vcxproj
---- VisualC/SDL_mixer.vcxproj	2018-10-31 10:58:59.000000000 -0400
-+++ VisualC/SDL_mixer.vcxproj	2019-04-26 12:13:50.978112400 -0400
+Only in VisualC_new: SDL_mixer.VC.db
+diff -ur VisualC/SDL_mixer.vcxproj VisualC_new/SDL_mixer.vcxproj
+--- VisualC/SDL_mixer.vcxproj	2019-04-26 13:03:19.503765400 -0400
++++ VisualC_new/SDL_mixer.vcxproj	2019-04-26 13:06:32.204400200 -0400
 @@ -1,5 +1,5 @@
  ﻿<?xml version="1.0" encoding="utf-8"?>
 -<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -115,7 +184,7 @@ diff -ur VisualC/SDL_mixer.vcxproj VisualC/SDL_mixer.vcxproj
    <ItemGroup Label="ProjectConfigurations">
      <ProjectConfiguration Include="Debug|Win32">
        <Configuration>Debug</Configuration>
-@@ -26,15 +26,19 @@
+@@ -26,34 +26,38 @@
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
      <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -135,9 +204,32 @@ diff -ur VisualC/SDL_mixer.vcxproj VisualC/SDL_mixer.vcxproj
    </PropertyGroup>
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
    <ImportGroup Label="ExtensionSettings">
-diff -ur VisualC/timidity/timidity.vcxproj VisualC/timidity/timidity.vcxproj
---- VisualC/timidity/timidity.vcxproj	2018-10-31 10:59:00.000000000 -0400
-+++ VisualC/timidity/timidity.vcxproj	2019-04-26 12:13:51.896500400 -0400
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <PropertyGroup Label="UserMacros" />
+   <PropertyGroup>
+diff -ur VisualC/timidity/timidity.vcxproj VisualC_new/timidity/timidity.vcxproj
+--- VisualC/timidity/timidity.vcxproj	2019-04-26 13:03:19.566256100 -0400
++++ VisualC_new/timidity/timidity.vcxproj	2019-04-26 13:06:28.370743100 -0400
 @@ -1,5 +1,5 @@
  ﻿<?xml version="1.0" encoding="utf-8"?>
 -<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -145,7 +237,7 @@ diff -ur VisualC/timidity/timidity.vcxproj VisualC/timidity/timidity.vcxproj
    <ItemGroup Label="ProjectConfigurations">
      <ProjectConfiguration Include="Debug|Win32">
        <Configuration>Debug</Configuration>
-@@ -49,15 +49,19 @@
+@@ -49,34 +49,38 @@
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
      <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -165,3 +257,26 @@ diff -ur VisualC/timidity/timidity.vcxproj VisualC/timidity/timidity.vcxproj
    </PropertyGroup>
    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
    <ImportGroup Label="ExtensionSettings">
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
++    <Import Project="$(VCTargetsPath)\Microsoft.CPP.UpgradeFromVC60.props" />
+   </ImportGroup>
+   <PropertyGroup Label="UserMacros" />
+   <PropertyGroup>
