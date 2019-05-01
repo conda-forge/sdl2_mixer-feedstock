@@ -15,6 +15,7 @@ source:
 
 build:
   number: 0
+  skip: true  # [win and c_compiler == 'vs2008']
 
 requirements:
   build:
@@ -61,3 +62,4 @@ about:
 extra:
   recipe-maintainers:
     - dschreij
+    - matham
