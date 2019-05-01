@@ -1,36 +1,36 @@
 setlocal EnableDelayedExpansion
 
-copy %RECIPE_DIR%\CMakeLists.txt .\CMakeLists.txt
-
-:: Make a build folder and change to it.
-mkdir build
-cd build
-
-:: Configure using the CMakeFiles
-cmake -G "NMake Makefiles" -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" -DCMAKE_BUILD_TYPE:STRING=Release .. 
-if errorlevel 1 exit 1
-
-:: Build!
-nmake
-if errorlevel 1 exit 1
-
-nmake install
-if errorlevel 1 exit 1
-
-:: Go back to source dir
-cd ..
-
-:: Copy headers of dependency dlls that are supplied with the source. It is impossible to compile them
-:: with the anaconda build environment, but I doubt it will be a problem to just use the included dlls
-:: as these libraries will probably only ever be used together with sdl2_mixer, and only if one tries
-:: to play music from the ancient MOD format (which I think will be very rarely)
-xcopy %SRC_DIR%\VisualC\external\include\libmodplug %LIBRARY_PREFIX%\include\libmodplug /I
-
-:: Copy the dll's of these dependencies
 if %ARCH%==32 (
-	set FOLDER=x86
+	set PLATFORM=Win32
 ) else if %ARCH%==64 (
-	set FOLDER=x64
+	set PLATFORM=x64
 )
 
-copy "%SRC_DIR%\VisualC\external\lib\%FOLDER%\libmodplug-1.dll" "%LIBRARY_PREFIX%\bin\libmodplug-1.dll"
+:: See https://github.com/conda-forge/staged-recipes/pull/194#issuecomment-203577297
+:: Nasty workaround. Need to move a more current msbuild into PATH.  The one on
+:: AppVeyor barfs on the solution. This one comes from the Win7 SDK (.net 4.0),
+:: and is known to work.
+if %VS_MAJOR%==9 (
+    set "PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%"
+)
+
+cd VisualC
+
+set "INCLUDE=%LIBRARY_INC%;%INCLUDE%;%LIBRARY_INC%\SDL2"
+set "LIB=%LIBRARY_LIB%;%LIBRARY_BIN%;%LIB%"
+set "AdditionalIncludeDirectories=%INCLUDE%"
+
+echo "Build env configuration"
+echo %INCLUDE%
+echo %LIB%
+echo %AdditionalIncludeDirectories%
+
+
+msbuild /nologo SDL_mixer.sln "/p:Configuration=Release;Platform=%PLATFORM%;useenv=true"
+if errorlevel 1 exit 1
+
+
+move %PLATFORM%\Release\SDL2_mixer.lib %LIBRARY_LIB%
+move %PLATFORM%\Release\SDL2_mixer.dll %LIBRARY_BIN%
+move ..\SDL_mixer.h %LIBRARY_INC%\\SDL2
+if errorlevel 1 exit 1
