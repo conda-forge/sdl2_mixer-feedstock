@@ -14,7 +14,7 @@ source:
     - vs2015_solution_upgrade.patch  # [win and c_compiler == 'vs2015']
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and c_compiler == 'vs2008']
 
 requirements:
