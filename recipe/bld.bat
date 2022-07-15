@@ -20,7 +20,7 @@ echo %LIB%
 echo %AdditionalIncludeDirectories%
 
 
-msbuild /nologo SDL_mixer.sln "/p:Configuration=Release;Platform=%PLATFORM%;PlatformToolset=v141;useenv=true"
+msbuild /nologo SDL_mixer.sln "/p:Configuration=Release;Platform=%PLATFORM%;PlatformToolset=v141;WindowsTargetPlatformVersion=10;useenv=true"
 if errorlevel 1 exit 1
 
 
