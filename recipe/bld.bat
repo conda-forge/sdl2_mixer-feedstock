@@ -8,6 +8,9 @@ if %ARCH%==32 (
 
 cd VisualC
 
+:: retarget to current toolset
+msbuild SDL_mixer.vcxproj /p:PlatformToolset=v141
+
 set "INCLUDE=%LIBRARY_INC%;%INCLUDE%;%LIBRARY_INC%\SDL2"
 set "LIB=%LIBRARY_LIB%;%LIBRARY_BIN%;%LIB%"
 set "AdditionalIncludeDirectories=%INCLUDE%"
