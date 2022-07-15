@@ -45,7 +45,7 @@ test:
 
 about:
   home: https://www.libsdl.org/projects/SDL_mixer/
-  license: ZLIB
+  license: Zlib
   license_file: COPYING.txt
   summary: "Sample multi-channel audio mixer library"
   description: |
