@@ -18,9 +18,10 @@ build:
 requirements:
   build:
     - pkg-config  # [unix]
-    - autoconf  # [unix]
-    - automake  # [unix]
-    - libtool  # [unix]
+    - autoconf    # [unix]
+    - automake    # [unix]
+    - libtool     # [unix]
+    - make        # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
