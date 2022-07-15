@@ -6,14 +6,6 @@ if %ARCH%==32 (
 	set PLATFORM=x64
 )
 
-:: See https://github.com/conda-forge/staged-recipes/pull/194#issuecomment-203577297
-:: Nasty workaround. Need to move a more current msbuild into PATH.  The one on
-:: AppVeyor barfs on the solution. This one comes from the Win7 SDK (.net 4.0),
-:: and is known to work.
-if %VS_MAJOR%==9 (
-    set "PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%"
-)
-
 cd VisualC
 
 set "INCLUDE=%LIBRARY_INC%;%INCLUDE%;%LIBRARY_INC%\SDL2"
