@@ -22,15 +22,17 @@ requirements:
   host:
     - sdl2 2.0.*
     - smpeg2 2.0.*
+    - fluidsynth    # [not win]
     - libogg
     - libvorbis
     - libflac
     - libmad
-    - opusfile
+    - opusfile      # [not win]
   run:
     - sdl2 2.0.*
     - smpeg2 2.0.*
-    - opusfile
+    - fluidsynth    # [not win]
+    - opusfile      # [not win]
 
 test:
   commands:
