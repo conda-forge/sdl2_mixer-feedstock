@@ -3,6 +3,7 @@
 mkdir build
 cd build
 
+:: no modplug/libxmp in conda-forge yet
 cmake -G Ninja ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DBUILD_SHARED_LIBS=ON ^
@@ -15,5 +16,5 @@ if %ERRORLEVEL% neq 0 exit 1
 cmake --build .
 if %ERRORLEVEL% neq 0 exit 1
 
-cmake --install --prefix $PREFIX
+cmake --install . --prefix $PREFIX
 if %ERRORLEVEL% neq 0 exit 1
