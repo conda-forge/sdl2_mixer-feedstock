@@ -23,15 +23,18 @@ requirements:
     - sdl2 2.0.*
     - smpeg2 2.0.*
     - fluidsynth    # [not win]
-    - libogg
-    - libvorbis
     - libflac
     - libmad
+    - libogg
+    - libvorbis
     - opusfile      # [not win]
   run:
     - sdl2 2.0.*
     - smpeg2 2.0.*
+    # these should ideally (eventually?) all come from
+    # run-exports on the respective host dependencies
     - fluidsynth    # [not win]
+    - libmad
     - opusfile      # [not win]
 
 test:
