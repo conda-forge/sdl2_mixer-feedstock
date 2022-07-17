@@ -1,12 +1,18 @@
 #!/bin/bash
+set -ex
 
-# Make sure TravisCI can find SDL2
-if [ `uname` == Darwin ]; then
-	export LDFLAGS="${LDFLAGS} -Wl,-rpath,$PREFIX/lib"
-fi
+mkdir build
+cd build
 
-sed -i -- "s|@prefix@|${PREFIX}|g" SDL2_mixer.pc.in
-SMPEG_CONFIG="${PREFIX}/bin/smpeg2-config"
-./configure --disable-dependency-tracking --prefix=${PREFIX}
-make
-make install
+# no modplug/libxmp in conda-forge yet
+cmake -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DBUILD_SHARED_LIBS=ON \
+    -DSDL2MIXER_VENDORED=OFF \
+    -DSDL2MIXER_MOD_MODPLUG=OFF \
+    -DSDL2MIXER_MOD_XMP=OFF \
+    ..
+
+cmake --build .
+cmake --install . --prefix $PREFIX

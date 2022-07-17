@@ -1,36 +1,22 @@
-setlocal EnableDelayedExpansion
+@echo on
 
-if %ARCH%==32 (
-	set PLATFORM=Win32
-) else if %ARCH%==64 (
-	set PLATFORM=x64
-)
+mkdir build
+cd build
 
-:: See https://github.com/conda-forge/staged-recipes/pull/194#issuecomment-203577297
-:: Nasty workaround. Need to move a more current msbuild into PATH.  The one on
-:: AppVeyor barfs on the solution. This one comes from the Win7 SDK (.net 4.0),
-:: and is known to work.
-if %VS_MAJOR%==9 (
-    set "PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%"
-)
+:: no libxmp/modplug in conda-forge yet; no fluidsynth/opusfile for win
+cmake -G Ninja ^
+    -DCMAKE_BUILD_TYPE=Release ^
+    -DBUILD_SHARED_LIBS=ON ^
+    -DSDL2MIXER_VENDORED=OFF ^
+    -DSDL2MIXER_MIDI_FLUIDSYNTH=OFF ^
+    -DSDL2MIXER_MOD_MODPLUG=OFF ^
+    -DSDL2MIXER_MOD_XMP=OFF ^
+    -DSDL2MIXER_OPUS=OFF ^
+    ..
+if %ERRORLEVEL% neq 0 exit 1
 
-cd VisualC
+cmake --build .
+if %ERRORLEVEL% neq 0 exit 1
 
-set "INCLUDE=%LIBRARY_INC%;%INCLUDE%;%LIBRARY_INC%\SDL2"
-set "LIB=%LIBRARY_LIB%;%LIBRARY_BIN%;%LIB%"
-set "AdditionalIncludeDirectories=%INCLUDE%"
-
-echo "Build env configuration"
-echo %INCLUDE%
-echo %LIB%
-echo %AdditionalIncludeDirectories%
-
-
-msbuild /nologo SDL_mixer.sln "/p:Configuration=Release;Platform=%PLATFORM%;useenv=true"
-if errorlevel 1 exit 1
-
-
-move %PLATFORM%\Release\SDL2_mixer.lib %LIBRARY_LIB%
-move %PLATFORM%\Release\SDL2_mixer.dll %LIBRARY_BIN%
-move ..\SDL_mixer.h %LIBRARY_INC%\\SDL2
-if errorlevel 1 exit 1
+cmake --install . --prefix %PREFIX%\Library
+if %ERRORLEVEL% neq 0 exit 1
