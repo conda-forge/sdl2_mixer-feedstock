@@ -26,10 +26,11 @@ requirements:
     - libvorbis
     - libflac
     - libmad
-
+    - opusfile
   run:
     - sdl2 2.0.*
     - smpeg2 2.0.*
+    - opusfile
 
 test:
   commands:
