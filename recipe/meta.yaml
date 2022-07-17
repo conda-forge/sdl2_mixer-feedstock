@@ -15,13 +15,9 @@ build:
 
 requirements:
   build:
-    - pkg-config  # [unix]
-    - autoconf    # [unix]
-    - automake    # [unix]
-    - libtool     # [unix]
-    - make        # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cmake
   host:
     - sdl2 2.0.*
     - smpeg2 2.0.*
