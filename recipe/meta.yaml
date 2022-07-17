@@ -39,8 +39,8 @@ test:
     # shared libraries
     - test -f $PREFIX/lib/libSDL2_mixer.so                # [linux]
     - test -f $PREFIX/lib/libSDL2_mixer.dylib             # [osx]
-    - if not exist %LIBRARY_LIB%\\SDL2_mixer.lib exit 1   # [win]
-    - if not exist %LIBRARY_BIN%\\SDL2_mixer.dll exit 1   # [win]
+    - if not exist %LIBRARY_LIB%\SDL2_mixer.lib exit 1    # [win]
+    - if not exist %LIBRARY_BIN%\SDL2_mixer.dll exit 1    # [win]
 
     # absence of static libraries
     - test ! -f $PREFIX/lib/libSDL2_mixer.a               # [unix]
