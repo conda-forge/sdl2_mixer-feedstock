@@ -18,6 +18,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
+    - ninja
   host:
     - sdl2 2.0.*
     - smpeg2 2.0.*
