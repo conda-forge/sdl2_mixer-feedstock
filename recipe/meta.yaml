@@ -20,8 +20,9 @@ requirements:
     - cmake
     - ninja
   host:
+    # todo: add these to the global pinning
     - sdl2 2.0.*
-    - smpeg2 2.0.*
+    - mpg123 1.31.*
     - fluidsynth    # [not win]
     - libflac
     - libmad
@@ -29,8 +30,6 @@ requirements:
     - libvorbis
     - opusfile      # [not win]
   run:
-    - sdl2 2.0.*
-    - smpeg2 2.0.*
     # these should ideally (eventually?) all come from
     # run-exports on the respective host dependencies
     - fluidsynth    # [not win]
