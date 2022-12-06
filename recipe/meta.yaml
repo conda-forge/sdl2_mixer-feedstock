@@ -9,7 +9,7 @@ source:
   sha256: 30c64e23506fcb1699981a297833407bf5bf9d8ab77390e26b26117b4a58bad5
 
 build:
-  number: 1
+  number: 2
   run_exports:
     - {{ pin_subpackage("sdl2_mixer", max_pin='x') }}
 
@@ -20,8 +20,8 @@ requirements:
     - cmake
     - ninja
   host:
-    # todo: add these to the global pinning
-    - sdl2 2.0.*
+    - sdl2
+    # todo: add to the global pinning
     - mpg123 1.31.*
     - fluidsynth    # [not win]
     - libflac
