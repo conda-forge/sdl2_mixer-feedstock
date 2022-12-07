@@ -21,13 +21,12 @@ requirements:
     - ninja
   host:
     - sdl2
-    # todo: add to the global pinning
-    - mpg123 1.31.*
     - fluidsynth    # [not win]
     - libflac
     - libmad
     - libogg
     - libvorbis
+    - mpg123
     - opusfile      # [not win]
   run:
     # these should ideally (eventually?) all come from
