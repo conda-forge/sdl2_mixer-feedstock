@@ -28,12 +28,6 @@ requirements:
     - libvorbis
     - mpg123
     - opusfile      # [not win]
-  run:
-    # these should ideally (eventually?) all come from
-    # run-exports on the respective host dependencies
-    - fluidsynth    # [not win]
-    - libmad
-    - opusfile      # [not win]
 
 test:
   commands:
