@@ -6,6 +6,8 @@ channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2019
+mpg123:
+- '1.31'
 sdl2:
 - '2'
 target_platform:
