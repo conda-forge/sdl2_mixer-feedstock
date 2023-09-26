@@ -1,11 +1,11 @@
-About sdl2_mixer
-================
+About sdl2_mixer-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sdl2_mixer-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.libsdl.org/projects/SDL_mixer/
 
 Package license: Zlib
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sdl2_mixer-feedstock/blob/main/LICENSE.txt)
 
 Summary: Sample multi-channel audio mixer library
 
@@ -22,14 +22,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/sdl2_mixer-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/sdl2_mixer-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
