@@ -9,7 +9,7 @@ source:
   sha256: 91dd065e9e63f499e5317350b110184b0ba96bc5f63c39b3a9939a136c40c035
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("sdl2_mixer", max_pin='x') }}
 
