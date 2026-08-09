@@ -13,7 +13,7 @@ libflac:
 libogg:
 - '1.3'
 mpg123:
-- '1.32'
+- '1.33'
 sdl2:
 - '2'
 sdl2_mixer:
